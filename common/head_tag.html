@@ -1,22 +1,4 @@
 <script type="text/discourse-plugin" version="0.8">
-  // O Discourse só tem um método de login (DiscourseConnect) — a tela
-  // "login-required" nunca precisa aparecer: clica o próprio botão de
-  // entrar assim que a rota carrega, levando direto para a tela
-  // estilizada do Revivah. onPageChange cobre transições internas (ex.:
-  // depois de Sair, sem reload); o polling cobre o load inicial, que
-  // onPageChange não dispara.
-  function tentaEntrar() {
-    if (document.body.classList.contains("static-login")) {
-      const botao = document.querySelector(".login-button");
-      if (botao) { botao.click(); return true; }
-    }
-    return false;
-  }
-  if (!tentaEntrar()) {
-    const watcher = setInterval(() => {
-      if (tentaEntrar()) clearInterval(watcher);
-    }, 150);
-    setTimeout(() => clearInterval(watcher), 8000);
-  }
-  api.onPageChange(tentaEntrar);
+  console.log("MARCADOR-TEMA-REVIVAH-EXECUTOU");
+  window.__temaRevivahRodou = true;
 </script>
