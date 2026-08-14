@@ -1,4 +1,29 @@
 <script>
-  console.log("MARCADOR-TEMA-REVIVAH-EXECUTOU");
-  window.__temaRevivahRodou = true;
+  // O Discourse só tem um método de login (DiscourseConnect) — a tela
+  // "login-required" nunca precisa aparecer: clica o próprio botão de
+  // entrar assim que a rota carrega, levando direto para a tela
+  // estilizada do Revivah. Ember adiciona a classe/o botão de forma
+  // assíncrona, então poll curto em vez de depender de um único evento.
+  (function () {
+    function tentaEntrar() {
+      if (document.body.classList.contains("static-login")) {
+        var botao = document.querySelector(".login-button");
+        if (botao) {
+          botao.click();
+          return true;
+        }
+      }
+      return false;
+    }
+    if (!tentaEntrar()) {
+      var watcher = setInterval(function () {
+        if (tentaEntrar()) clearInterval(watcher);
+      }, 150);
+      setTimeout(function () { clearInterval(watcher); }, 10000);
+    }
+    // cobre transições internas (ex.: clicar em "Sair" sem reload completo)
+    document.addEventListener("click", function () {
+      setTimeout(tentaEntrar, 300);
+    }, true);
+  })();
 </script>
