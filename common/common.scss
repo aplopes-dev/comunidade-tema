@@ -57,6 +57,25 @@ h1, h2, h3, h4,
 .d-header {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px -18px rgba(7, 30, 34, 0.6);
 }
+/* ícones do header sobre fundo navy: o hover padrão do Discourse usa fundo
+   claro + ícone escuro, que aqui "apagava" o balão de chat — troca por um
+   véu aqua translúcido mantendo o ícone sempre claro */
+.d-header-icons .icon {
+  color: rgba(220, 246, 243, 0.85);
+}
+.d-header-icons .icon .d-icon {
+  color: rgba(220, 246, 243, 0.85);
+}
+.d-header-icons .icon:hover,
+.d-header-icons .icon:focus,
+.d-header-icons .icon.active {
+  background: rgba(113, 214, 209, 0.16);
+}
+.d-header-icons .icon:hover .d-icon,
+.d-header-icons .icon:focus .d-icon,
+.d-header-icons .icon.active .d-icon {
+  color: #dcf6f3;
+}
 #site-text-logo {
   font-family: var(--heading-font-family);
   font-weight: 700;
@@ -160,14 +179,46 @@ input[type="email"] {
   background: color-mix(in srgb, var(--tertiary) 4%, var(--secondary));
   border-right: 1px solid color-mix(in srgb, var(--primary) 8%, transparent);
 }
+
+/* ordem das seções: comunidade → canais/DMs (chat) → categorias → resto */
+.sidebar-sections {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-sections > * {
+  order: 50;
+}
+.sidebar-section-wrapper[data-section-name="community"] {
+  order: 10;
+}
+.sidebar-section-wrapper[data-section-name="chat-channels"] {
+  order: 20;
+}
+.sidebar-section-wrapper[data-section-name="chat-dms"] {
+  order: 21;
+}
+.sidebar-section-wrapper[data-section-name="user-threads"] {
+  order: 22;
+}
+.sidebar-section-wrapper[data-section-name="categories"] {
+  order: 30;
+}
+.sidebar-section-wrapper[data-section-name="tags"] {
+  order: 40;
+}
+
+/* cabeçalhos de seção maiores e mais legíveis */
 .sidebar-section-header-text,
 .sidebar-section-header .sidebar-section-header-caret + span {
   font-family: var(--heading-font-family);
-  font-size: 0.72em;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 0.92em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--tertiary) 65%, var(--primary));
+  color: color-mix(in srgb, var(--tertiary) 75%, var(--primary));
+}
+.sidebar-section-wrapper {
+  padding-top: 0.4em;
 }
 .sidebar-section-link-wrapper .sidebar-section-link {
   border-radius: 999px;
@@ -182,7 +233,9 @@ input[type="email"] {
   color: var(--tertiary);
   font-weight: 700;
 }
-.sidebar-section-link-prefix svg {
+/* tinta teal só nos links da seção comunidade — ícones de categoria mantêm a
+   cor da própria categoria (style_type: icon definido por categoria) */
+.sidebar-section-wrapper[data-section-name="community"] .sidebar-section-link-prefix svg {
   color: color-mix(in srgb, var(--tertiary) 78%, var(--primary));
 }
 .sidebar-footer-wrapper {
