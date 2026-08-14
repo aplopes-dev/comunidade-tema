@@ -154,3 +154,37 @@ input[type="email"] {
 .cooked blockquote {
   border-left: 3px solid var(--tertiary);
 }
+
+/* ---------- sidebar: identidade Revivah ---------- */
+.sidebar-wrapper {
+  background: color-mix(in srgb, var(--tertiary) 4%, var(--secondary));
+  border-right: 1px solid color-mix(in srgb, var(--primary) 8%, transparent);
+}
+.sidebar-section-header-text,
+.sidebar-section-header .sidebar-section-header-caret + span {
+  font-family: var(--heading-font-family);
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--tertiary) 65%, var(--primary));
+}
+.sidebar-section-link-wrapper .sidebar-section-link {
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+.sidebar-section-link-wrapper .sidebar-section-link:hover {
+  background: color-mix(in srgb, var(--tertiary) 9%, var(--secondary));
+}
+.sidebar-section-link-wrapper .sidebar-section-link.active,
+.sidebar-section-link-wrapper .sidebar-section-link--active {
+  background: color-mix(in srgb, var(--tertiary) 14%, var(--secondary));
+  color: var(--tertiary);
+  font-weight: 700;
+}
+.sidebar-section-link-prefix svg {
+  color: color-mix(in srgb, var(--tertiary) 78%, var(--primary));
+}
+.sidebar-footer-wrapper {
+  background: transparent;
+}
