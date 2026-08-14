@@ -23,13 +23,6 @@
 :root {
   --font-family: "Inter", -apple-system, system-ui, sans-serif;
   --heading-font-family: "Manrope", "Inter", sans-serif;
-  /* Inter tem x-height alto: 14px aqui equivale visualmente aos 15-16px
-     da fonte padrão do Discourse — rebaixa a escala inteira um degrau */
-  --base-font-size-smallest: 0.75em;   /* 12px */
-  --base-font-size-smaller: 0.8125em;  /* 13px */
-  --base-font-size: 0.875em;           /* 14px */
-  --base-font-size-larger: 0.938em;    /* 15px */
-  --base-font-size-largest: 1em;       /* 16px */
   /* raio 14px da landing */
   --d-border-radius: 14px;
   --d-border-radius-large: 18px;
@@ -37,6 +30,14 @@
   --d-nav-pill-border-radius: 999px;
   --d-input-border-radius: 12px;
 }
+
+/* Inter tem x-height alto: um degrau abaixo da escala padrão do Discourse
+   (o core fixa font-size em html.text-size-* — mesmo nível, tema carrega depois) */
+html.text-size-smallest { font-size: 0.75em; }   /* 12px */
+html.text-size-smaller { font-size: 0.8125em; }  /* 13px */
+html.text-size-normal { font-size: 0.875em; }    /* 14px */
+html.text-size-larger { font-size: 0.938em; }    /* 15px */
+html.text-size-largest { font-size: 1em; }       /* 16px */
 
 body {
   font-family: var(--font-family);
