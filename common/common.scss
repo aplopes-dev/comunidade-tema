@@ -195,6 +195,7 @@ input[type="email"] {
   border-radius: var(--d-border-radius-large);
   overflow: hidden;
   margin-top: 0.8em;
+  margin-bottom: 1.4em;
   background:
     linear-gradient(100deg, rgba(7, 30, 34, 0.94) 0%, rgba(7, 30, 34, 0.78) 46%, rgba(8, 127, 140, 0.45) 100%),
     url($banner) center 32% / cover no-repeat;
