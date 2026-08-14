@@ -23,6 +23,13 @@
 :root {
   --font-family: "Inter", -apple-system, system-ui, sans-serif;
   --heading-font-family: "Manrope", "Inter", sans-serif;
+  /* Inter tem x-height alto: 14px aqui equivale visualmente aos 15-16px
+     da fonte padrão do Discourse — rebaixa a escala inteira um degrau */
+  --base-font-size-smallest: 0.75em;   /* 12px */
+  --base-font-size-smaller: 0.8125em;  /* 13px */
+  --base-font-size: 0.875em;           /* 14px */
+  --base-font-size-larger: 0.938em;    /* 15px */
+  --base-font-size-largest: 1em;       /* 16px */
   /* raio 14px da landing */
   --d-border-radius: 14px;
   --d-border-radius-large: 18px;
@@ -53,7 +60,7 @@ h1, h2, h3, h4,
   font-family: var(--heading-font-family);
   font-weight: 700;
   letter-spacing: -0.02em;
-  font-size: 1.35em;
+  font-size: 1.2em;
 }
 #site-text-logo::first-letter {
   color: #71d6d1;
