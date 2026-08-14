@@ -1,0 +1,148 @@
+/* ============================================================
+   Revivah Comunidade — Grupo BioQgene
+   Identidade do produto (commit "Reestilização" do Revivah):
+   verde-profundo biotech sobre off-white quente, acento teal,
+   lima para destaques, Inter (texto) + Manrope (display).
+   ============================================================ */
+
+@font-face {
+  font-family: "Inter";
+  src: url($inter) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url($manrope) format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-family: "Inter", -apple-system, system-ui, sans-serif;
+  --heading-font-family: "Manrope", "Inter", sans-serif;
+  /* raio 14px da landing */
+  --d-border-radius: 14px;
+  --d-border-radius-large: 18px;
+  --d-button-border-radius: 999px;
+  --d-nav-pill-border-radius: 999px;
+  --d-input-border-radius: 12px;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4,
+.topic-title h1,
+.list-container .link-top-line .title {
+  font-family: var(--heading-font-family);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* ---------- header: marca como na landing (Revivah · GRUPO BIOQGENE) ---------- */
+.d-header {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px -18px rgba(7, 30, 34, 0.6);
+}
+#site-text-logo {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 1.35em;
+}
+#site-text-logo::first-letter {
+  color: #71d6d1;
+}
+.d-header .title a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+}
+.d-header .title a::after {
+  content: "Grupo BioQgene";
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(220, 246, 243, 0.55);
+  white-space: nowrap;
+}
+
+/* ---------- botões em pílula, CTA teal com sombra suave ---------- */
+.btn {
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s;
+}
+.btn-primary {
+  box-shadow: 0 10px 26px -12px rgba(8, 127, 140, 0.55);
+}
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+#create-topic {
+  border-radius: 999px;
+}
+
+/* ---------- navegação e categorias ---------- */
+.nav-pills > li a.active {
+  font-weight: 700;
+}
+.badge-category__wrapper .badge-category {
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-weight: 600;
+}
+
+/* ---------- listas e cartões ---------- */
+.topic-list {
+  border-radius: var(--d-border-radius);
+  overflow: hidden;
+}
+.topic-list th {
+  font-family: var(--heading-font-family);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72em;
+}
+.topic-list-item td {
+  border-color: rgba(7, 30, 34, 0.08);
+}
+
+/* selo de destaque (lima da identidade) em fixados/destaques */
+.topic-list-item.pinned .topic-statuses .d-icon,
+.topic-status .d-icon-thumbtack {
+  color: #087f8c;
+}
+
+/* ---------- composer e inputs ---------- */
+.d-editor-textarea-wrapper,
+.select-kit.combo-box .select-kit-header,
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  border-radius: 12px;
+}
+
+/* ---------- links ---------- */
+.cooked a:not(.mention):not(.badge-category__wrapper) {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(19, 167, 165, 0.35);
+}
+.cooked a:not(.mention):not(.badge-category__wrapper):hover {
+  border-bottom-color: var(--tertiary);
+}
+
+/* ---------- citações e código com o raio da casa ---------- */
+.cooked blockquote,
+.cooked pre {
+  border-radius: var(--d-border-radius);
+}
+.cooked blockquote {
+  border-left: 3px solid var(--tertiary);
+}

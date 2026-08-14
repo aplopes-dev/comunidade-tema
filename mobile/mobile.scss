@@ -1,0 +1,7 @@
+/* mobile: sem o selo "Grupo BioQgene" ao lado da marca (espaço curto) */
+.d-header .title a::after {
+  content: none;
+}
+#site-text-logo {
+  font-size: 1.15em;
+}
