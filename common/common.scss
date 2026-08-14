@@ -180,7 +180,10 @@ input[type="email"] {
   border-right: 1px solid color-mix(in srgb, var(--primary) 8%, transparent);
 }
 
-/* ordem das seções: comunidade → canais/DMs (chat) → categorias → resto */
+/* ordem das seções: comunidade → canais/DMs (chat) → categorias → resto.
+   No DOM real, a seção comunidade vive dentro de .sidebar-custom-sections e
+   as seções do chat dentro de .sidebar-api-sections — a ordem vai nos
+   CONTAINERS filhos diretos de .sidebar-sections. */
 .sidebar-sections {
   display: flex;
   flex-direction: column;
@@ -188,22 +191,16 @@ input[type="email"] {
 .sidebar-sections > * {
   order: 50;
 }
-.sidebar-section-wrapper[data-section-name="community"] {
+.sidebar-sections > .sidebar-custom-sections {
   order: 10;
 }
-.sidebar-section-wrapper[data-section-name="chat-channels"] {
+.sidebar-sections > .sidebar-api-sections {
   order: 20;
 }
-.sidebar-section-wrapper[data-section-name="chat-dms"] {
-  order: 21;
-}
-.sidebar-section-wrapper[data-section-name="user-threads"] {
-  order: 22;
-}
-.sidebar-section-wrapper[data-section-name="categories"] {
+.sidebar-sections > .sidebar-section-wrapper[data-section-name="categories"] {
   order: 30;
 }
-.sidebar-section-wrapper[data-section-name="tags"] {
+.sidebar-sections > .sidebar-section-wrapper[data-section-name="tags"] {
   order: 40;
 }
 
