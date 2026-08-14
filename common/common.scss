@@ -188,3 +188,34 @@ input[type="email"] {
 .sidebar-footer-wrapper {
   background: transparent;
 }
+
+/* ---------- welcome banner: imagem da landing + véu navy ---------- */
+.welcome-banner {
+  position: relative;
+  border-radius: var(--d-border-radius-large);
+  overflow: hidden;
+  margin-top: 0.8em;
+  background:
+    linear-gradient(100deg, rgba(7, 30, 34, 0.94) 0%, rgba(7, 30, 34, 0.78) 46%, rgba(8, 127, 140, 0.45) 100%),
+    url($banner) center 32% / cover no-repeat;
+  padding: 2.4em 1.6em 2.6em;
+}
+.welcome-banner .custom-search-banner-wrap,
+.welcome-banner__wrap {
+  background: transparent;
+}
+.welcome-banner__title {
+  color: #f8faf7;
+  font-family: var(--heading-font-family);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 18px rgba(7, 30, 34, 0.55);
+}
+.welcome-banner__subheader,
+.welcome-banner p {
+  color: rgba(220, 246, 243, 0.85);
+}
+.welcome-banner .search-menu .search-input,
+.welcome-banner input[type="text"] {
+  border: 0;
+  box-shadow: 0 14px 34px -16px rgba(7, 30, 34, 0.7);
+}
